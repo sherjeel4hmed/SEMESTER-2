@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int customer_id;
+    string name;
+    int units_consumed, units_left;
+    double total_amount, surcharge_amount;
+    cout << "Enter Customer Name " << endl;
+    getline(cin, name);
+    cout << "Enter Customer ID " << endl;
+    cin >> customer_id;
+    cout << "Enter Units consumed" << endl;
+    cin >> units_consumed;
+    if (units_consumed <= 199)
+    {
+        total_amount = units_consumed * 16.20;
+    }
+    else if (units_consumed >= 200 && units_consumed < 300)
+    {
+        total_amount = units_consumed * 20.10;
+    }
+    else if (units_consumed >= 300 && units_consumed < 500)
+    {
+        total_amount = units_consumed * 27.10;
+    }
+    else if (units_consumed >= 500)
+    {
+        total_amount = units_consumed * 35.90;
+    }
+    if (total_amount > 18000)
+    {
+        surcharge_amount = total_amount * 0.15;
+        total_amount += surcharge_amount;
+        if (surcharge_amount > 0)
+        {
+            cout << "Surcharge Amount: " << surcharge_amount << endl;
+        }
+        cout << "Net Amount Paid by the Customer: " << total_amount << endl;
+    }
+    return 0;
+}
