@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+float findsecondhighest(float *arr, int length);
+int main()
+{
+    float arr[20] = {1, 6, 8, 9, 19, 41, 9, 6, 7, 8, 11, 12, 56, 14, 15, 16, 78, 18, 19, 20};
+    int length = sizeof(arr) / sizeof(arr[0]);
+    cout << "The second largest number in array is " << findsecondhighest(arr, length) << endl;
+}
+
+float findsecondhighest(float *arr, int length)
+{
+    float *largest = arr; 
+   float *second_largest = nullptr;
+
+    for (int i = 0; i < length; i++)
+    {
+        if (*largest < arr[i])
+        {
+            second_largest = largest;
+            largest = arr+i;
+        }
+        else if ( second_largest==nullptr||arr[i] > *second_largest && arr[i] != *largest)
+        {
+            second_largest = arr+i;
+        }
+    }
+    if (second_largest == nullptr) {
+        cout << "No second largest number found (all elements may be equal)." << endl;
+}else
+ return *second_largest;
+}
