@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+string name;
+float arr[5];
+float avg;
+cout<<"Enter Student name"<<endl;
+getline(cin,name);
+cout<<"Enter Test Scores"<<endl;
+for(int i=0;i<5;i++){
+cin>>arr[i];
+avg+=arr[i];
+}
+cout<<"Test Scores: ";
+for(int i=0;i<5;i++){
+cout<<" "<<arr[i];
+}
+avg=avg/5;
+cout<<endl;
+cout<<"Average Score: "<<avg<<endl;
+return 0;
+}
