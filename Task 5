@@ -1,0 +1,48 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+int main(){
+    string movie_name;
+    int number_of_tickets_sold;
+    double gross_amount;
+    double percentage_of_donated_amount;
+    double net_sale;
+    double num_adult_ticket_sold,num_child_ticket_sold;
+    double adult_ticket_price,child_ticket_price,amount_donated;
+    cout<<"Enter movie name "<<endl;
+    getline(cin,movie_name);
+      while(1){
+     cout<<"Enter number of tickets sold "<<endl;
+    cin>>number_of_tickets_sold;
+    cout<<"Enter number of adult tickets sold "<<endl;
+    cin>>num_adult_ticket_sold;
+     cout<<"Enter adult ticket price "<<endl;
+    cin>> adult_ticket_price;
+     cout<<"Enter number of child tickets sold "<<endl;
+    cin>>num_child_ticket_sold;
+     cout<<"Enter price of child tickets "<<endl;
+    cin>>child_ticket_price;
+    double check=num_adult_ticket_sold+num_child_ticket_sold;
+    if(number_of_tickets_sold!=check){
+ cout<<"The entered number of total tickets sold doesnot match the combined amount of child and adult tickets sold"<<endl;
+ cout<<"Please Enter the corrected amount"<<endl;
+   continue;
+    }else
+      break;
+    }
+     cout<<"Enter percentage of gross donated amount"<<endl;
+    cin>>percentage_of_donated_amount;
+    percentage_of_donated_amount=percentage_of_donated_amount/100;
+    gross_amount=num_adult_ticket_sold*adult_ticket_price+num_child_ticket_sold*child_ticket_price;
+cout << fixed << setprecision(2);
+cout<<"Movie name"<<left<<setw(20)<<setfill('.')<<right<<setw(20)<<movie_name<<endl;
+cout<<"Number of tickets sold"<<left<<setw(20)<<setfill('.')<<right<<setw(20)<<number_of_tickets_sold<<endl;
+cout<<"Gross amount"<<left<<setw(20)<<setfill('.')<<right<<setw(20)<<gross_amount<<endl;
+cout<<"Percentage of Gross Amount Donated"<<left<<setw(20)<<setfill('.')<<right<<setw(20)<<percentage_of_donated_amount*100<<endl;
+net_sale=gross_amount-(gross_amount*percentage_of_donated_amount);
+ cout<<"Amount Donated"<<left<<setw(20)<<setfill('.')<<right<<setw(20)<<gross_amount-net_sale<<endl;
+ cout<<"Net Sale"<<left<<setw(20)<<setfill('.')<<right<<setw(20)<<net_sale<<endl;
+ 
+ return 0;
+}
